@@ -1,5 +1,15 @@
 require_relative "catalog/characters" # forma para importar el archivo en ruby characters.rb desde la carpeta catalog
- # Definene Caracter válido
+ # Automatiaciones de los empty?                     
+#  def get_input(prompt)
+#  input = ""
+#    while input.empty?
+#    puts prompt
+#    print "> "
+#    input = gets.chomp 
+#    end
+#  end
+
+# Definene Caracter válido
 def select_character
     character = ""
     characters= Catalog::CHARACTERS.select{|name, data| data[:type] == "player"}
@@ -14,7 +24,7 @@ def select_character
      end
    end
    character.downcase
-  puts "#{character.downcase}" # devuelve el personaje , .downcase: Este método convierte toda la cadena a minúsculas.
+  #puts "#{character.downcase}" # devuelve el personaje , .downcase: Este método convierte toda la cadena a minúsculas.
 
 end
 
@@ -44,3 +54,15 @@ character= select_character
 # puts Catalog::CHARACTERS  # verificamos si importamos bien
 # pp Catalog::CHARACTERS   # verificamos si importamos bien y si lo quieres más ordenado
 #filtered_hash = hash.select { |key, value| value >2}
+
+
+#Forma rudimentaria de programar
+character_name = ""
+while character_name.empty?
+  puts "Give your character a name:"
+  print "> "
+  character_name = gets.chomp   
+end
+puts "Name: #{name}"
+puts "Character type: #{character}"
+puts "Character name: #{character_name}"
