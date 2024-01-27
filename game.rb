@@ -1,6 +1,6 @@
 require_relative "catalog/characters" # forma para importar el archivo en ruby characters.rb desde la carpeta catalog
- # Automatiaciones de los empty?                     
- def get_input(prompt)
+ # Automatiaciones de los empty? , el programa entrea aquí primero como paso 1 y al último  como paso5                   
+ def get_input(prompt) 
    input = ""
    while input.empty?
      puts prompt
@@ -9,37 +9,35 @@ require_relative "catalog/characters" # forma para importar el archivo en ruby c
    end
    input
  end
-
-# Definene Caracter válido
-def select_character
-    character = ""
-    characters= Catalog::CHARACTERS.select{|name, data| data[:type] == "player"}
-    valid_characters = characters.keys #[warrrior, magician]
-  until valid_characters.include?(character.downcase)
-     puts "Choose a character"
-     print_player_characters(valid_characters)
-    #  character = gets.chomp.downcase
-     character = gets.chomp
-     unless valid_characters.include?(character.downcase)
-        puts "Invalid option !!"
-     end
-   end
-   character.downcase
-  #puts "#{character.downcase}" # devuelve el personaje , .downcase: Este método convierte toda la cadena a minúsculas.
-
+ 
+ # Automatiar las opciones y validaciones con una función
+ def get_input_options(prompt, options) #el programa entrea aquí como paso 3
+  input = ""
+  until options.include?(input.downcase)
+    puts prompt
+    print_options(options) #el programa entrea aquí como paso 4
+    print "> "
+    input = gets.chomp
+  end
+  input.downcase
 end
 
-def print_player_characters (options) # agregamos parámetros
-   
+# Definene Caracter válido , 
+def select_character #el programa entrea aquí como paso 2
+    characters= Catalog::CHARACTERS.select{|name, data| data[:type] == "player"}
+    valid_characters = characters.keys #[warrrior, magician]
+    characters = get_input_options("Choose a Character:",valid_characters ) #el programa entrea aquí como paso 3
+end
+
+def print_options(options) # agregamos parámetros  #el programa entrea aquí como paso 4
     options.each_with_index do |option , index|
         puts "#{index +1}. #{option.capitalize}" #.capitalize: Este método convierte el primer carácter de una cadena a mayúsculas y el resto de la cadena a minúsculas.
     end
-     print "> "
 end
 
 
 name = get_input("What's your name?")
-character= select_character
+character = select_character
 character_name = get_input("Give your character a name:")
 puts "Name: #{name}"
 puts "Character type: #{character}"
