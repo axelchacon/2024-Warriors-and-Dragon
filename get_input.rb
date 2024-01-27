@@ -1,3 +1,4 @@
+module GetInputable #Buenas prácticas usando +able al final del module
 def get_input(prompt) 
     input = ""
     while input.empty?
@@ -25,4 +26,4 @@ def print_options(options) # agregamos parámetros  #el programa entrea aquí co
     end
 end
 
-
+end

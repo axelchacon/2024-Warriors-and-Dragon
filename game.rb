@@ -1,6 +1,8 @@
 require_relative "catalog/characters" # forma para importar el archivo en ruby characters.rb desde la carpeta catalog
 require_relative "get_input"
 
+include GetInputable
+
 # Definene Caracter válido , 
 def select_character #el programa entrea aquí como paso 2
     characters= Catalog::CHARACTERS.select{|name, data| data[:type] == "player"}
