@@ -1,12 +1,12 @@
 require_relative "character"
 require_relative "get_input"
 class Player #yo como jugador
+    attr_reader :character
     include GetInputable # por qué?
     def initialize(name, character_type, character_name)
       @name = name
       @character = Character.new(character_name,character_type)
     end
-  end
   
   def select_move
     move= get_input_options("Select a move to attack", @character.moves)
