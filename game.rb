@@ -20,11 +20,6 @@ character_name = get_input("Give your character a name:")
 # puts "Name: #{name}"
 # puts "Character type: #{character}"
 # puts "Character name: #{character_name}"
-
-
-
-
-
 player = Player.new(name, character, character_name)
 p player
 bot = Bot.new

@@ -1,4 +1,6 @@
 class Character # automatizado para extraer datos tanto del bot y player 
+    attr_accessor :current_move
+    attr_reader :name, :experience, :moves 
     def initialize(name, type)
       char_details= Catalog::CHARACTERS[type] # es type sin : porque es un string
       @name = name
@@ -24,7 +26,18 @@ class Character # automatizado para extraer datos tanto del bot y player
     def fainted?
       @health.positive?
     end 
-    
-  
+#other es la instacnia del personaje tanto del bot o player
+    def attack(other)
+        hits?= @current_move[:accuracy] >= rand(1..100)
+        if hits?
+            other.receive_damage(@current_move[:power])
+        else 
+            puts "#{@name} failed to hit #{other.name} and didn't cause any damage"
+        end   
+    end
+
+    def increase_experience(defeated_character)
+        @experience += defeated_character.experience*0.2
+      end 
   end
   
