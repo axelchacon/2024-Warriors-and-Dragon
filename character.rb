@@ -1,6 +1,6 @@
 class Character # automatizado para extraer datos tanto del bot y player 
-    attr_accessor :current_move
-    attr_reader :name, :experience, :moves 
+    attr_accessor :current_move  #nos permite hacer lo mismo de attr_reader más sobreescribir
+    attr_reader :name, :experience, :moves #nos permite acceder a las propiedades como.nombre y hcaer pequeñas llamasdas usao #{@name}
     def initialize(name, type)
       char_details= Catalog::CHARACTERS[type] # es type sin : porque es un string
       @name = name
