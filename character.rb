@@ -26,7 +26,7 @@ class Character # automatizado para extraer datos tanto del bot y player
     def fainted?
       @health.positive?
     end 
-#other es la instacnia del personaje tanto del bot o player
+     #other es la instacnia del personaje tanto del bot o player
     def attack(other)
         hits?= @current_move[:accuracy] >= rand(1..100)
         if hits?
@@ -38,6 +38,7 @@ class Character # automatizado para extraer datos tanto del bot y player
 
     def increase_experience(defeated_character)
         @experience += defeated_character.experience*0.2
-      end 
-  end
+    end 
+
+end
   
