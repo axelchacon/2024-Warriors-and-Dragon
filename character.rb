@@ -1,3 +1,5 @@
+require_relative "catalog/characters"
+
 class Character # automatizado para extraer datos tanto del bot y player 
     attr_accessor :current_move  #nos permite hacer lo mismo de attr_reader más sobreescribir
     attr_reader :name, :experience, :moves #nos permite acceder a las propiedades como.nombre y hcaer pequeñas llamasdas usao #{@name}
@@ -28,8 +30,8 @@ class Character # automatizado para extraer datos tanto del bot y player
     end 
      #other es la instacnia del personaje tanto del bot o player
     def attack(other)
-        hits?= @current_move[:accuracy] >= rand(1..100)
-        if hits?
+        effective_hit= @current_move[:accuracy] >= rand(1..100)
+        if effective_hit
             other.receive_damage(@current_move[:power])
         else 
             puts "#{@name} failed to hit #{other.name} and didn't cause any damage"
