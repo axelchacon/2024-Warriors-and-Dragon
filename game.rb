@@ -1,6 +1,7 @@
 require_relative "catalog/characters" # forma para importar el archivo en ruby characters.rb desde la carpeta catalog
 require_relative "get_input"
 require_relative "player"
+require_relative "battle"
 #rubocop:disable Style/MixinUsage
 include GetInputable
 #rubocop:disable Style/MixinUsage
@@ -21,6 +22,6 @@ character_name = get_input("Give your character a name:")
 # puts "Character type: #{character}"
 # puts "Character name: #{character_name}"
 player = Player.new(name, character, character_name)
-p player
 bot = Bot.new
-p bot
+battle = Battle.new(player, bot)
+battle.start

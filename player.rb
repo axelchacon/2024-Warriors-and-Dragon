@@ -2,7 +2,7 @@ require_relative "character"
 require_relative "get_input"
 require_relative "catalog/moves"
 class Player #yo como jugador
-    attr_reader :character
+    attr_reader :character, :name
     include GetInputable # por qué?porque get_input.b está en un módulo
     def initialize(name, character_type, character_name)
       @name = name
@@ -29,10 +29,10 @@ end
     end 
   end
 
-player = Player.new("Testino", "warrior", "Kratos")
-player.select_move
-p player
-bot = Bot.new
-bot.select_move
-p bot
+# player = Player.new("Testino", "warrior", "Kratos")
+# player.select_move
+# p player
+# bot = Bot.new
+# bot.select_move
+# p bot
    
