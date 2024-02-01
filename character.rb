@@ -17,7 +17,7 @@ class Character # automatizado para extraer datos tanto del bot y player
   
     def prepare_to_battle
       @health = @max_health
-      @curent_move = nill
+      @current_move = nill
     end 
     
     
@@ -30,7 +30,7 @@ class Character # automatizado para extraer datos tanto del bot y player
     end 
      #other es la instacnia del personaje tanto del bot o player
     def attack(other)
-        effective_hit= @current_move[:accuracy] >= rand(1..100)
+        effective_hit= @current_move[:accuracy] >= rand(1..100) #### Ojo
         if effective_hit
             other.receive_damage(@current_move[:power])
         else 
