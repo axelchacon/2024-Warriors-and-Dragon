@@ -2,7 +2,7 @@ require_relative "catalog/characters"
 
 class Character # automatizado para extraer datos tanto del bot y player 
     attr_accessor :current_move  #nos permite hacer lo mismo de attr_reader más sobreescribir
-    attr_reader :name, :experience, :moves #nos permite acceder a las propiedades como.nombre y hcaer pequeñas llamasdas usao #{@name}
+    attr_reader :name, :experience, :moves, :speed #nos permite acceder a las propiedades como.nombre y hcaer pequeñas llamasdas usao #{@name} # Añadí lo de :speed
     def initialize(name, type)
       char_details= Catalog::CHARACTERS[type] # es type sin : porque es un string
       @name = name
@@ -26,7 +26,7 @@ class Character # automatizado para extraer datos tanto del bot y player
     end 
     
     def fainted?
-      @health.positive?
+      !@health.positive? # Ojo : añadí lo de negación con !
     end 
      #other es la instacnia del personaje tanto del bot o player
     def attack(other)
