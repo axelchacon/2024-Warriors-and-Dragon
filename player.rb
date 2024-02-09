@@ -10,7 +10,7 @@ class Player #yo como jugador
     end
     def select_move
       move= get_input_options("Select a move to attack", @character.moves)
-      @character.current_move =Catalog::MOVES[move]
+      @character.current_move =Catalog::MOVES[move] # este es current_move que buscan del charactter.rb
     end 
 end
   

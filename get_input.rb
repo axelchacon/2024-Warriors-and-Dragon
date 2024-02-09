@@ -1,5 +1,5 @@
 module GetInputable #Buenas prácticas usando +able al final del module
-def get_input(prompt) 
+def get_input(prompt)  #Paso función_número 1
     input = ""
     while input.empty?
       puts prompt
@@ -7,7 +7,7 @@ def get_input(prompt)
       input = gets.chomp 
     end
     input
-  end
+end
 
   def get_input_options(prompt, options) #el programa entrea aquí como paso 3
     input = ""

@@ -14,7 +14,7 @@ def select_character #el programa entrea aquí como paso 2
 end
 
 
-name = get_input("What's your name?")
+name = get_input("What's your name?") # Paso llamada_número 1
 character = select_character
 character_name = get_input("Give your character a name:")
 # Emepzamos a automatiar los tres "puts" de abajo" con clases. Esto nos va a servir para otras peticiones del ejerciocio por lo que podemos reutilizarlos

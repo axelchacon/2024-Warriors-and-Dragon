@@ -31,8 +31,7 @@ class Battle
         winner = @player_char.fainted? ? @bot_char : @player_char
         loser = winner == @player_char ? @bot_char : @player_char
         winner.increase_experience(loser)
-        puts "#{winner.name} WINS! They experience reached #{winner.experience} points."
-        
+        puts "#{winner.name} WINS! They experience reached #{winner.experience} points."    
     end
     # def select_first(player_char, bot_char)
     #     @player.select_move
